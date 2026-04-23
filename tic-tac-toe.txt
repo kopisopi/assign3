@@ -1,0 +1,14 @@
+notes:
+component: reusable piece of code that represents a part of a user interface
+
+export default function Square ()
+//export makes it accessible outsside of this file
+//default tells other files that it is the main funciton in my file
+{
+    return <button className="square"><X</button>
+    //<button> is JSX element
+    //className="square" is button property or prop that tells CSS how to style the button
+    //X is the text dispalyed
+    //</> end wrapper/close
+}
+

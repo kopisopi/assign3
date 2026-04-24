@@ -12,3 +12,25 @@ export default function Square ()
     //</> end wrapper/close
 }
 
+//When writing return statment, the first parantheses "(" MUST be on the same line as the return
+
+function Square({value}) //indicates the Square component can be passed a prop called {value}
+
+before using array Square function:
+function Square()
+{
+  const [value, setValue] = useState(null);
+  function handleClick()
+  {
+    setValue('X');
+  }
+  return(
+
+    <button 
+    className="square"
+    onClick={handleClick}
+    >
+    {value}
+    </button>
+  )
+}

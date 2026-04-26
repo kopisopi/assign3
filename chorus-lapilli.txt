@@ -9,3 +9,40 @@ Therefore, after your third move you always occupy three squares. The move can b
 
 2. If it is your turn to move and you have three pieces on the board and one of your pieces is in the center square, 
 your move must either win or vacate the center square.
+
+
+Notes:
+
+#1: Chorus Lapilli can only have 3 of each symboles on the board at once
+    - Added interior counter and also had it print/return to see if it works:
+    
+    const [xCount, setXCount] = useState(0);
+    const [oCount, setOCount] = useState(0);
+    {/*   
+
+    <div className="X count">X count: {xCount}</div>
+    <div className="O count">O count: {oCount}</div> 
+    
+    internal counter to check if updating the count for testing reasons
+    
+    */}
+    -using this, make it so that if xCount or oCount exceeds 3, cannot change a square into respective symboles
+#2: create new rules on movement and winning
+     if (!squares[i] && isAdjacent(selectedSquare, i)) {
+        //isAdjacent returns what moves is possible given the square due to chorus lapilli rules (DIFFERENT FROM TTT)
+  
+        const holdsCenter = squares[4] === currentPlayer;
+        const isVacatingCenter = selectedSquare === 4;
+        
+
+        const testSquares = nextSquares.slice();
+        testSquares[i] = currentPlayer;
+        testSquares[selectedSquare] = null;
+        const moveWins = calculateWinner(testSquares);
+
+
+        if (holdsCenter && !isVacatingCenter && !moveWins) {
+          return; 
+        }
+    }
+    

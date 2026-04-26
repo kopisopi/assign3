@@ -38,7 +38,7 @@ export default function Board()
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xCount, setXCount] = useState(0);
   const [oCount, setOCount] = useState(0);
-  const [selectedSquare, setSelectedSquare] = useState(null); // Added for movement
+  const [selectedSquare, setSelectedSquare] = useState(null);
 
   function handleClick(i)
   {

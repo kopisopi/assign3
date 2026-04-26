@@ -154,6 +154,28 @@ class TestChorusLapilli(unittest.TestCase):
         self.assertTileIs(tiles[0], self.SYMBOL_BLANK)
         tiles[0].click()
         self.assertTileIs(tiles[0], self.SYMBOL_X)
+   
+    def no_replace(self):
+        "check that second player cannot replace first player's spot"
+        tiles = self.driver.find_elements(By.XPATH, self.BOARD_TILE_XPATH)
+        tiles[0].click() 
+        tiles[0].click() 
+        self.assertTileIs(tiles[1], self.SYMBOL_X)
+
+    def no_more_than_6(self):
+        "check that there are no more than 6 symbols on the board"
+        tiles = self.driver.find_elements(By.XPATH, self.BOARD_TILE_XPATH)
+        tiles[1].click() 
+        tiles[2].click()
+        tiles[3].click() 
+        tiles[4].click()
+        tiles[5].click() 
+        tiles[6].click()
+        tiles[7].click() 
+        tiles[8].click()
+        self.assertTileIs(tiles[7], self.SYMBOL_BLANK)
+        self.assertTileIs(tiles[8], self.SYMBOL_BLANK)
+    
 
 
 # ================= [DO NOT MAKE ANY CHANGES BELOW THIS LINE] =================
